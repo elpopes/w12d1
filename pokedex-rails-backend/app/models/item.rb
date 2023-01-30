@@ -12,8 +12,9 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
-  validates :name, length: { in: 3..255 }, uniqueness: { message: "'%{value}' is already in use" }
+  validates :name, length: { in: 3..255 }
   validates :price, numericality: { greater_than: 0 }
+  validates :image_url, :happiness, presence: true
 
 
   belongs_to :pokemon

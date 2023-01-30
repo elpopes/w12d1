@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 class PokeMove < ApplicationRecord
-  validates :poke_move, length: { in: 3..255 }, uniqueness: { message: "'%{value}' is already in use" }
+  validates :pokemon_id, uniqueness: { scope: :move_id, message: "pokemon can't have more than 1 %{value}" }
 
   belongs_to :pokemon
   belongs_to :move
