@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_30_191729) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_30_192639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_30_191729) do
     t.datetime "updated_at", null: false
     t.index ["move_id"], name: "index_poke_moves_on_move_id"
     t.index ["name"], name: "index_poke_moves_on_name", unique: true
+    t.index ["pokemon_id", "move_id"], name: "index_poke_moves_on_pokemon_id_and_move_id", unique: true
     t.index ["pokemon_id"], name: "index_poke_moves_on_pokemon_id"
   end
 
